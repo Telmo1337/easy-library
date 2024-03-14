@@ -6,14 +6,23 @@ using System.Threading.Tasks;
 
 namespace MundoLivraria
 {
-    class Repositor :IFuncionario
+    class Repositor : IFuncionario
     {
+        /* public string Nome { get; }
+         public string Utilizador { get; }
+         public string Password { get; }
+         public string Cargo => "Repositor";
+         public bool Logado { get; set; }
+        */
+
         public string Nome { get; }
-        public string Utilizador { get; }
-        public string Password { get; }
+        public string Utilizador { get; } 
+        private string Password { get; } 
+
         public string Cargo => "Repositor";
         public bool Logado { get; set; }
 
+        string IFuncionario.Password => Password;
 
         //construtor da classe repositor
         public Repositor(string nome, string utilizador, string password)
@@ -27,6 +36,5 @@ namespace MundoLivraria
         {
             return Utilizador == utilizador && Password == password;
         }
-
     }
 }
